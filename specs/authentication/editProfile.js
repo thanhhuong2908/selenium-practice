@@ -34,6 +34,18 @@ describe('authentication/editProfile', () => {
   });
 
   context('failure', async () => {
-    // todo...
+    const updatedFirstName = 'New First Name';
+
+    it('updates user information', async () => {
+      await driver.get(`${baseUrl}/users_panel/profiles/edit`);
+      await driver.findElement(By.css('#user_first_name')).clear()
+      await driver.findElement(By.css('#user_first_name')).sendKeys(updatedFirstName);
+      await driver.findElement(By.css('form .btn-update')).click();
+
+      await driver.get(`${baseUrl}/users_panel/profiles`);
+
+      const profileText = await driver.findElement(By.css('.user-profiles')).getText();
+      expect(profileText).to.contain(updatedFirstName);
+    });
   });
 });
