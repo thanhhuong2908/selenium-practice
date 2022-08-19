@@ -39,7 +39,7 @@ describe('authentication/editPassword', () => {
     const currentPass = '123456';
     const newPass = '123456';
     const confirmPass = '123456';
-    const errorBlock = 'You must login first to continue.';
+    //const errorBlock = 'You must login first to continue.';
 
     it('updates password success', async () => {
       await driver.get(`${baseUrl}/users_panel/profiles/edit_password`);
@@ -50,9 +50,9 @@ describe('authentication/editPassword', () => {
     //   await driver.get(`${baseUrl}`);
       await driver.sleep(300);
 
-    //   const messageBlock = await driver.findElement(By.css('#login-form .error-block')).getText();
-    //   expect(messageBlock).to.contain(errorBlock);
-    driver.wait(until.urlIs(`${baseUrl}`));
+      const error = await driver.findElement(By.css('#login-form .error-block')).getText();
+      expect(error).to.equal('You must login first to continue.');
+    //driver.wait(until.urlIs(`${baseUrl}`));
 
     });
   });
