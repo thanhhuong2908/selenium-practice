@@ -1,5 +1,5 @@
 import { By } from 'selenium-webdriver';
-import { baseUrl, authEmail, authPassword } from "../utils/config";
+import { baseUrl, userAuthEmail, userAuthPassword, adminAuthEmail, adminAuthPassword } from "../utils/config";
 
 export const doLogin = async (driver, { email, password }) => {
   await driver.get(baseUrl);
@@ -10,9 +10,9 @@ export const doLogin = async (driver, { email, password }) => {
   await driver.sleep(2000);
 }
 
-export const doAuthentication = async (driver) => {
+export const doAuthentication = async (driver, isAdmin=false) => {
   await doLogin(driver, {
-    email: authEmail,
-    password: authPassword,
+    email: isAdmin ? adminAuthEmail : userAuthEmail,
+    password: isAdmin ? adminAuthPassword : userAuthPassword,
   });
 }
