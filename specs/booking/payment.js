@@ -49,7 +49,7 @@ describe('booking/payment', () => {
   context('fail', async () => {
     const flashError = "Your card's expiration year is invalid.";
 
-    it.only('add new payment fail', async () => {
+    it('add new payment fail', async () => {
       await driver.get(`${baseUrl}/users_panel/payments`);
       await driver.findElement(By.css("a[href*='users_panel/payments?location_id=5b53370c6909ad58b84886ac']")).click();
       await driver.findElement(By.id("payment_card_name")).sendKeys("Visa");
