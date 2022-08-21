@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:login": "mocha --no-timeouts --reporter mochawesome --require mochawesome/register specs/**/*.js",
     "test:all": "mocha --no-timeouts --reporter mochawesome --require mochawesome/register specs/**/**/*.js",
     "test:only": "mocha --no-timeouts --parallel",
     "test:report": "cd mochawesome-report && open mochawesome.html"

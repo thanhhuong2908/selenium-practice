@@ -10,7 +10,7 @@ describe('booking/meetingRoomBooking', () => {
 
   before(async () => {
     driver = await buildDriver();
-    await doAuthentication(driver);
+    await doAuthentication(driver, 'ptu');
   });
 
   after(async () => {
@@ -24,7 +24,20 @@ describe('booking/meetingRoomBooking', () => {
       await driver.get(`${baseUrl}/users_panel/bookings`);
       await driver.findElement(By.css('#city>option[value="sg"]')).click();
       await driver.findElement(By.css('#location>option[value="PVS"]')).click();
-      await driver.findElement(By.css('div[data-start-time="02:30PM"]')).click();
+      const timeLine = await driver.findElements(By.css('#timeline_booking_5bcd202b6909ad34cd598de8 .column-booking'));
+      let selectedSlot;
+      for(let i = 0; i < timeLine.length; i++){
+        const slot = timeLine[i];
+        const classes = await slot.getAttribute('class');
+        if (classes.includes('col-active')){
+          selectedSlot = slot;
+          break;
+        }
+      }
+      if(selectedSlot == undefined){
+        return ;
+      }
+      await selectedSlot.click();
       await driver.sleep(3000);
       await driver.findElement(By.className("btn btn-default btn-confirm-booking bold-title")).click();
       await driver.sleep(3000);
@@ -44,7 +57,20 @@ describe('booking/meetingRoomBooking', () => {
       await driver.get(`${baseUrl}/users_panel/bookings`);
       await driver.findElement(By.css('#city>option[value="sg"]')).click();
       await driver.findElement(By.css('#location>option[value="ASQ"]')).click();
-      await driver.findElement(By.css('div[data-start-time="02:30PM"]')).click();
+      const timeLine = await driver.findElements(By.css('#timeline_booking_5c831fdf6909ad7a8c9a17c3 .column-booking'));
+      let selectedSlot;
+      for(let i = 0; i < timeLine.length; i++){
+        const slot = timeLine[i];
+        const classes = await slot.getAttribute('class');
+        if (classes.includes('col-active')){
+          selectedSlot = slot;
+          break;
+        }
+      }
+      if(selectedSlot == undefined){
+        return ;
+      }
+      await selectedSlot.click();
       await driver.sleep(3000);
       await driver.findElement(By.className("btn btn-default btn-confirm-booking bold-title")).click();
       await driver.sleep(3000);

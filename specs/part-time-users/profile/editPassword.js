@@ -10,7 +10,7 @@ describe('authentication/editPassword', () => {
 
   before(async () => {
     driver = await buildDriver();
-    await doAuthentication(driver);
+    await doAuthentication(driver, 'ptu');
   });
 
   after(async () => {

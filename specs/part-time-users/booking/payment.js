@@ -10,7 +10,7 @@ describe('booking/payment', () => {
 
   before(async () => {
     driver = await buildDriver();
-    await doAuthentication(driver);
+    await doAuthentication(driver, 'ptu');
   });
 
   after(async () => {

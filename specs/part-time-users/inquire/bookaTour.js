@@ -22,7 +22,7 @@ describe('inquire/bookaTour', () => {
     const phoneVS = '1111111111';
     const emailVS = 'selina.pt@mailinator.com';
     const noteVS = 'selenium demo';
-    it.only('Visitor submit success', async () => {
+    it('Visitor submit success', async () => {
         await driver.get(`${baseUrl}`);
         await driver.findElement(By.css('.visit-us')).click();
         await driver.findElement(By.css('#name')).sendKeys(nameVisitor);

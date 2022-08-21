@@ -2,7 +2,7 @@ import { By } from 'selenium-webdriver';
 import { expect } from 'chai';
 
 import { buildDriver } from '../../utils/browser';
-import { baseUrl, authEmail, authPassword, userAuthEmail, userAuthPassword } from '../../utils/config';
+import { baseUrl, ptuAuthEmail, ptuAuthPassword } from '../../utils/config';
 import { doLogin } from '../../supports/login';
 
 describe('authentication/login', () => {
@@ -29,8 +29,8 @@ describe('authentication/login', () => {
   });
 
   context('with valid credentials', async () => {
-    const email = userAuthEmail;
-    const password = userAuthPassword;
+    const email = ptuAuthEmail;
+    const password = ptuAuthPassword;
 
     it('allows user access to dashboard', async () => {
       await doLogin(driver, { email, password });
