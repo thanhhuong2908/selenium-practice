@@ -1,9 +1,9 @@
 import { By } from 'selenium-webdriver';
 import { expect } from 'chai';
 
-import { buildDriver } from '../../utils/browser';
-import { baseUrl, authEmail, authPassword } from '../../utils/config';
-import { doLogin } from '../../supports/login';
+import { buildDriver } from '../../../utils/browser';
+import { baseUrl, authEmail, authPassword } from '../../../utils/config';
+import { doLogin } from '../../../supports/login';
 
 describe('inquire/bookaTour', () => {
   let driver;
@@ -22,7 +22,7 @@ describe('inquire/bookaTour', () => {
     const phoneVS = '1111111111';
     const emailVS = 'selina.pt@mailinator.com';
     const noteVS = 'selenium demo';
-    it('Visitor submit success', async () => {
+    it.only('Visitor submit success', async () => {
         await driver.get(`${baseUrl}`);
         await driver.findElement(By.css('.visit-us')).click();
         await driver.findElement(By.css('#name')).sendKeys(nameVisitor);

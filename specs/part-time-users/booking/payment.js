@@ -1,9 +1,9 @@
 import { By, until } from 'selenium-webdriver';
 import { expect } from 'chai';
 
-import { baseUrl } from '../../utils/config';
-import { buildDriver } from '../../utils/browser';
-import { doAuthentication } from '../../supports/login';
+import { baseUrl } from '../../../utils/config';
+import { buildDriver } from '../../../utils/browser';
+import { doAuthentication } from '../../../supports/login';
 
 describe('booking/payment', () => {
   let driver;
