@@ -5,7 +5,7 @@ import { buildDriver } from '../../../utils/browser';
 import { baseUrl, authEmail, authPassword } from '../../../utils/config';
 import { doLogin } from '../../../supports/login';
 
-describe('part-time-users/inquire/bookaTour', () => {
+describe('full-time-users/full-time-inquire/bookaTour', () => {
   let driver;
 
   beforeEach(async () => {
@@ -17,10 +17,10 @@ describe('part-time-users/inquire/bookaTour', () => {
   });
 
   context('submit success', async () => {
-    const nameVisitor = 'Selina Part-Time';
+    const nameVisitor = 'Selina Full-Time';
     const companyVS = 'Golden Owl';
     const phoneVS = '1111111111';
-    const emailVS = 'selina.pt@mailinator.com';
+    const emailVS = 'selina.ft@mailinator.com';
     const noteVS = 'selenium demo';
     it('Visitor submit success', async () => {
       await driver.get(`${baseUrl}`);
@@ -46,7 +46,7 @@ describe('part-time-users/inquire/bookaTour', () => {
   context('submit fail', async () => {
     const companyVS = 'Golden Owl';
     const phoneVS = '1111111111';
-    const emailVS = 'selina.pt@mailinator.com';
+    const emailVS = 'selina.ft@mailinator.com';
     const noteVS = 'selenium demo';
     it('Visitor submit with name field is blank', async () => {
       await driver.get(`${baseUrl}`);

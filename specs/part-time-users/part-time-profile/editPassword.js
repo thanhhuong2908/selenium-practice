@@ -47,12 +47,12 @@ describe('part-time-users/part-time-profile/editPassword', () => {
       await driver.findElement(By.css('#user_password')).sendKeys(newPass);
       await driver.findElement(By.css('#user_password_confirmation')).sendKeys(confirmPass);
       await driver.findElement(By.css('form .btn-update')).click();
-    //   await driver.get(`${baseUrl}`);
+      //   await driver.get(`${baseUrl}`);
       await driver.sleep(300);
 
       const error = await driver.findElement(By.css('#login-form .error-block')).getText();
       expect(error).to.equal('You must login first to continue.');
-    //driver.wait(until.urlIs(`${baseUrl}`));
+      //driver.wait(until.urlIs(`${baseUrl}`));
 
     });
   });
