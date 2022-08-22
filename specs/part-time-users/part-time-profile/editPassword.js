@@ -5,7 +5,7 @@ import { baseUrl } from '../../../utils/config';
 import { buildDriver } from '../../../utils/browser';
 import { doAuthentication } from '../../../supports/login';
 
-describe('authentication/editPassword', () => {
+describe('part-time-users/part-time-profile/editPassword', () => {
   let driver;
 
   before(async () => {

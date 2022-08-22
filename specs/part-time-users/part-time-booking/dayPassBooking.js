@@ -5,7 +5,7 @@ import { baseUrl } from '../../../utils/config';
 import { buildDriver } from '../../../utils/browser';
 import { doAuthentication } from '../../../supports/login';
 
-describe('booking/dayPassBooking', () => {
+describe('part-time-users/part-time-booking/dayPassBooking', () => {
   let driver;
 
   before(async () => {

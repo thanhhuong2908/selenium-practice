@@ -5,7 +5,7 @@ import { buildDriver } from '../../../utils/browser';
 import { baseUrl, authEmail, authPassword } from '../../../utils/config';
 import { doLogin } from '../../../supports/login';
 
-describe('inquire/bookaTour', () => {
+describe('part-time-users/inquire/bookaTour', () => {
   let driver;
 
   beforeEach(async () => {
